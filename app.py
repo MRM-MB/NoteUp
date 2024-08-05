@@ -45,7 +45,7 @@ app.config['GOOGLE_CLIENT_SECRET'] = google_client_secret
 
 # Configuration for Google OAuth
 GOOGLE_DISCOVERY_URL = "https://accounts.google.com/.well-known/openid-configuration"
-REDIRECT_URI = "https://noteup.onrender.com/login/google/callback"
+REDIRECT_URI = "https://noteup-jv4s.onrender.com/login/google/callback"
 
 client = WebApplicationClient(google_client_id)
 
