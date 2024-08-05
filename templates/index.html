@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Welcome to <span class="noteup-text"><span class="unique-n">N</span>oteUp</span></h1>
+<p style="margin-bottom: 30px;">One app, multiple accounts: your digital hub for storing information.</p>
+<p class="thin-text">Recognizes <strong style="color: #007bff;">over 200 companies</strong> and crafts bespoke banners and backgrounds tailored to each one 🎨✨.</p>
+<div class="logos">
+    <a href="https://www.tumblr.com/" target="_blank">
+      <img src="https://asset.brandfetch.io/idOm3KEKVV/idhbfPpoUf.svg" alt="Tumblr Logo" />
+    </a>
+    <a href="https://www.twilio.com/" target="_blank">
+      <img src="https://asset.brandfetch.io/idT7wVo_zL/idv6P5GaJs.svg" alt="Twilio Logo" />
+    </a>
+    <a href="https://www.netflix.com/" target="_blank">
+      <img src="https://asset.brandfetch.io/ideQwN5lBE/id4qnE0Mvj.svg" alt="Netflix Logo" />
+    </a>
+    <a href="https://trello.com/" target="_blank">
+      <img src="https://asset.brandfetch.io/idToc8bDY1/idWzvpTN85.svg" alt="Trello Logo" />
+    </a>
+    <a href="https://www.notion.so" target="_blank">
+      <img src="https://asset.brandfetch.io/idPYUoikV7/id-TDv2-jo.svg" alt="Notion Logo" />
+    </a>
+  </div>
+  <div class="logos">
+    <a href="https://thenorthface.com/" target="_blank">
+      <img src="https://asset.brandfetch.io/idJcrF2oAV/idIF7-7IGN.svg" alt="The North Face Logo" />
+    </a>
+    <a href="https://primevideo.com/" target="_blank">
+      <img src="https://asset.brandfetch.io/idXRXV6qi8/ido-v9m7iu.png" alt="Prime video Logo" />
+    </a>
+    <a href="https://legohouse.com/" target="_blank">
+      <img src="https://asset.brandfetch.io/idrSpWVUTe/idnXb0PASi.png" alt="Lego House Logo" />
+    </a>
+    <p class="thin-text">and more to discover.</p>
+  </div>
+<div class="bottom-right-image"></div>
+<div class="bottom-left-image"></div>
+<div class="dashboard-links">
+  <a href="{{ url_for('register') }}" class="btn btn-primary custom-dashboard-button custom-position"><i class="fas fa-angle-double-right"></i> Get Started</a>        
+</div>
+<style>
+/* Base styling for the custom button */
+.custom-dashboard-button.custom-position {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 26px;
+    position: relative; /* Relative positioning within the container */
+    margin-top: 30px; /* Adjust as needed to position below the logos */
+    margin-left: 130px;
+}
+
+    .logos {
+        display: flex;
+        justify-content: justify;
+        align-items: center;
+        gap: 1rem; /* Adds space between logos */
+        margin: 1.25rem 0; /* Adds space above and below the logo row */
+    }
+
+    .logos img {
+        width: 90px; /* Adjust the size of the logos */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .thin-text {
+        font-weight: normal;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        max-width: 550px;
+        text-align: justify;
+        word-wrap: break-word; /* Ensures long words break to fit within the max-width */
+    }
+
+    .bottom-right-image {
+        position: fixed;
+        bottom: -80px;
+        right: -50px;
+        width: 780px;
+        height: 780px;
+        background: url('../static/images/right_img.svg') no-repeat;
+        background-size: contain;
+        transform: rotate(10deg); /* Adjust the angle as needed */
+        transform-origin: bottom right; /* Optional: Adjust origin if needed */
+    }
+
+    .bottom-left-image {
+        position: fixed;
+        bottom: 120px;
+        right: 1080px;
+        width: 400px;
+        height: 470px;
+        background: url('../static/images/left_img.svg') no-repeat;
+        background-size: contain;
+        transform: rotate(-30deg); /* Adjust the angle as needed */
+        transform-origin: bottom right; /* Optional: Adjust origin if needed */
+    }
+
+    /* Adjust for tablets */
+    @media (max-width: 1024px) {
+        .bottom-right-image {
+            width: 500px;
+            height: 500px;
+            bottom: -50px;
+            right: 10px;
+        }
+    }
+
+    /* Adjust for mobile devices */
+    @media (max-width: 768px) {
+        .bottom-right-image {
+            width: 340px;
+            height: 340px;
+            bottom: -30px;
+            right: -17px;
+        }
+
+        .thin-text {
+        font-size: 0.9rem;
+        }
+
+        .logos {
+            gap: 0.5rem; /* Reduce space between logos on smaller screens */
+            margin: 0.5rem 0; /* Adjust space above and below the logo row */
+        }
+
+        .logos img {
+            width: 50px; /* Adjust size of logos on smaller screens */
+        }
+
+        .custom-dashboard-button.custom-position {
+          font-size: 18px;
+          padding: 8px 10px !important;
+          width: 200px !important;
+          margin-top: 10px;
+        }
+    }
+
+    /* Smaller Screens */
+    @media (max-width: 612px) {
+        .bottom-right-image {
+            width: 300px;
+            height: 300px;
+            bottom: -30px;
+            right: -15px;
+        }
+    }
+</style>
+
+{% endblock %}

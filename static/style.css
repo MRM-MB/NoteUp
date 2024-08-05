@@ -1,0 +1,1623 @@
+/* Custom styles for NoteUp */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext');
+@import url('background-styles.css'); /* Backgrounds (View Account) */
+
+/* General layout and spacing */
+html, body {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    font-size: 105%;
+    height: 100%;
+    margin: 0;
+    background-color: #f8f9fa;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: url('images/Bg_Colors/bg.svg'); /* Desktop background "bg" image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-image: url('images/Bg_Colors/bg_ph.svg'); /* Phone "ph" background image */
+        background-size: cover;
+        background-attachment: scroll;
+        height: 100%;
+    }
+}
+
+/* Unique style for the 'N' of NoteUp */
+.navbar-brand {
+    display: inline-flex; /* Align children in a row */
+    align-items: center; /* Vertically center the items */
+    position: relative; /* Make the parent relative for positioning */
+  }
+  
+  .unique-n {
+    font-size: 1.3em;
+    font-family: "Lemon", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: transparent; /* Make the text color transparent */
+    background: url('images/logo.svg'); /* Use your image path */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text;
+    background-size: cover; /* Ensure the background image covers the container */
+    animation: bounceIn 1.5s ease-in-out;
+  }
+  
+  .noteUp {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for fade-in effect */
+    transform: translateX(-10px); /* Start slightly to the left of "N" */
+    white-space: nowrap; /* Prevent wrapping */
+  }
+  
+  .navbar-brand:hover .noteUp {
+    opacity: 1; /* Make it visible */
+    transform: translateX(0); /* Move it to its original position */
+  }
+  
+/* Refined Animation for noteup-text */
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    40% {
+        opacity: 0.5;
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.noteup-text {
+    display: inline-block;
+    animation: fadeInSlideUp 1.5s ease-in-out;
+}
+
+/* Enhanced bounceIn Animation */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    20% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(0.9);
+    }
+    60% {
+        transform: scale(1.03);
+    }
+    80% {
+        transform: scale(0.97);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.unique-n {
+    display: inline-block;
+    animation: bounceIn 1.5s ease-in-out;
+}
+
+/* Combined Animation */
+@keyframes fadeInBounceUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.3);
+    }
+    20% {
+        opacity: 0.5;
+        transform: translateY(10px) scale(1.1);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(0) scale(0.9);
+    }
+    60% {
+        transform: translateY(-5px) scale(1.03);
+    }
+    80% {
+        transform: translateY(2.5px) scale(0.97);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.combined-animation {
+    display: inline-block;
+    animation: fadeInBounceUp 2s ease-in-out;
+}
+.tooltip-text {
+    visibility: hidden;
+    width: 120px; /* Adjust width as needed */
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Adjust as needed to position the tooltip */
+    left: 50%;
+    margin-left: -60px; /* Adjust to center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+/* For info text */
+.lighter-font {
+    font-size: 18px;
+    font-weight: 500;
+    color: #324e63;
+}
+
+/* Navbar customization */
+/* Default styles for larger screens */
+.navbar {
+    background-color: rgba(248, 249, 250, 0.7) !important; /* Adjust opacity as needed */
+    backdrop-filter: blur(10px); /* Optional: Adds a blur effect behind the navbar */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.4rem; /* Bigger font size */
+    font-weight: bold; /* Bolder font */
+    color: #00224D !important;
+    padding: 0.5rem 1rem; /* Larger padding for bigger buttons */
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-link i {
+    margin-right: 0.5rem; /* Space between icon and text */
+    font-size: 1.5rem; /* Bigger icon size */
+}
+
+
+/* Hover effects */
+.navbar-nav .nav-link:hover {
+    color: #007bff !important; /* Bg_Colors/Desktop/Light-Mode/Blue on hover */
+}
+
+.navbar-nav .nav-item .nav-link[href*="logout"]:hover {
+    color: red !important; /*/Bg_Colors/Desktop/Light-Mode/Red on hover for logout */
+}
+
+/* Flash messages */
+.alert ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* General container styling */
+.container {
+    max-width: 960px;
+    margin-top: 2rem;
+}
+
+/* Specific adjustment for the mt-5 container */
+.container.mt-5 {
+    margin-left: -4rem; /* Adjust the value to move it to the left */
+}
+
+/* Additional styles for content blocks */
+.content-block {
+    padding: 2rem;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased; /* Smooth the fonts on WebKit browsers */
+    -moz-osx-font-smoothing: grayscale; /* Smooth the fonts on Firefox */
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Form customization */
+.form-group label {
+    font-weight: bold;
+    color: #000;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.btn-block {
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Additional margin for better spacing */
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+/* Dashboard specific styling */
+.dashboard-links {
+    margin-bottom: 30px; /* Increased margin for spacing */
+}
+
+.dashboard-links a {
+    margin-right: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+}
+
+.dashboard-links a:hover {
+    background-color: #0056b3;
+}
+
+.dashboard-links a.delete-account {
+    background-color: #dc3545;
+}
+
+.dashboard-links a.delete-account:hover {
+    background-color: #c82333;
+}
+
+.account-list {
+    list-style: none;
+    padding: 0;
+}
+
+.account-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.account-item strong {
+    font-size: 1.1em;
+}
+
+.account-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.account-actions a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #17a2b8;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.account-actions a:hover {
+    background-color: #138496;
+}
+
+.account-actions form button {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.account-actions form button:hover {
+    background-color: #c82333;
+}
+
+.account-actions form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+/* Welcome text styling */
+.welcome-text {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 8px; /* Increased margin for spacing */
+}
+
+/* Hand emoji animation */
+.wave {
+    display: inline-block;
+    animation: wave-animation 2.5s infinite ease-in-out;
+    transform-origin: bottom center;
+    font-size: 1.2em;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 1.2em; /* Smaller font size for mobile */
+    }
+
+    .wave {
+        font-size: 1.2em; /* Smaller font size for mobile */
+    }
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* General styles for the table */
+.table-responsive {
+    width: calc(100% + 12rem); /* Expands the table beyond the container */
+    margin: 0; /* Adjusts negative margin to align the expanded table */
+    height: 450px; /* Set the height for the table container */
+    overflow-y: auto; /* Add vertical scroll */
+    overflow-x: hidden; /* Hide horizontal scroll */
+    border-radius: 8px; /* Adds rounded corners to the table container */
+    position: relative; /* Needed for the header positioning */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.table-responsive::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.table {
+    width: 100%; /* Ensures the table takes the full width available */
+    max-width: 100%; /* Ensures the table does not exceed the container width */
+    border-collapse: collapse; /* Ensures no extra space between cells */
+    background-color: #fff; /* Ensures the table background is white */
+}
+
+.table thead {
+    position: sticky; /* Sticky header */
+    top: 0; /* Sticks to the top */
+    z-index: 10; /* Ensure it stays above other content */
+}
+
+.table th {
+    background-color: #00224D;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1.5px; /* Add space between letters */
+}
+
+/* Adjust column widths */
+.table th:nth-child(1) { /* Company Name */
+    width: 50%; /* Adjust as per your requirement */
+}
+.table th:nth-child(2) { /* User */
+    width: 25%; /* Adjust as per your requirement */
+}
+.table th:nth-child(3) { /* Year of Creation */
+    width: 25%; /* Adjust as per your requirement */
+}
+
+.company-logo {
+    max-width: 120px; /* Set your desired max width */
+    max-height: 40px; /* Ensure the image fits within the table row height */
+    object-fit: contain; /* Ensure the image fits within the specified dimensions */
+}
+
+/* Only round the top corners of the first and last th in the header */
+.table th:first-child {
+    border-top-left-radius: 8px;
+}
+.table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.table td {
+    padding: 12px; /* Padding for body cells */
+    text-align: center; /* Align text to the center */
+    font-weight: bold;
+    border: 1px solid #dee2e6; /* Border color for body cells */
+    height: 50px; /* Set a fixed height for table rows */
+    vertical-align: middle; /* Align content to the middle vertically */
+}
+
+/* Improved font style for company name */
+.company-name {
+    font-size: 20px; /* Adjust font size for readability */
+    font-weight: 600; /* Semi-bold weight for emphasis */
+    color: #333; /*/Bg_Colors/Desktop/Light-Mode/Dark color for better contrast */
+    text-transform: capitalize; /* Capitalize the first letter of each word */
+    letter-spacing: 0.5px; /* Add slight space between letters */
+}
+
+/* Table row hover effect with smooth zoom and centered scaling */
+.table-hover tbody tr {
+    transition: transform 0.4s ease-in-out; /* Smooth transition for the zoom effect */
+    transform-origin: center center; /* Scale from the center */
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f5fd; /* Light blue on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+    cursor: pointer; /* Add cursor pointer on hover */
+}
+
+/* Default visibility for larger screens */
+.full-text {
+    display: inline; /* Show full text by default */
+}
+
+.short-text {
+    display: none; /* Hide short text by default */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .full-text {
+        display: none; /* Hide full text on mobile */
+    }
+    .short-text {
+        display: inline; /* Show short text on mobile */
+    }
+}
+
+/* Custom styles for the Update button */
+.btn-custom-update {
+    background-color: #007bff; /* Replace with your desired background color */
+    color: #fff; /* Ensure the text color is white for better contrast */
+    border-color: #007bff; /* Match the border color with the background */
+}
+
+.btn-custom-update:hover {
+    background-color: #0056b3; /* Darken the color on hover */
+    border-color: #0056b3; /* Match the border color with the background on hover */
+}
+
+/* Styles specific to the Add/Update Account pages */
+.add-account-container, .update-account-container {
+    max-width: 900px;
+}
+
+.add-account-card, .update-account-card, .delete-card, .login-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.add-account-heading, .update-account-heading, .delete-title-container h1, .login-title-container h1 {
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.add-account-heading::after, .update-account-heading::after, .delete-title-container h1::after, .login-title-container h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+.delete-title-container h1::after {
+    background-color: #dc3545;
+}
+
+.add-account-form .form-row, .update-account-form .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.add-account-form .form-group, .update-account-form .form-group {
+    flex: 0 0 48%; /* Make the form groups take up roughly half the container each */
+    margin-bottom: 1rem;
+}
+
+.add-account-form .form-group.col-md-6, .update-account-form .form-group.col-md-6 {
+    padding-right: 10px;
+}
+
+.add-account-form .form-group.col-md-6:last-child, .update-account-form .form-group.col-md-6:last-child {
+    padding-right: 0;
+}
+
+.add-account-form .form-control, .update-account-form .form-control {
+    width: 100%;
+}
+
+.description-group button,
+.update-account-container button {
+    display: inline-block;
+}
+
+#add-description-btn,
+#update-description-btn {
+    width: 100%;
+    margin-top: 2.1rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    #add-description-btn,
+    #update-description-btn {
+        margin-top: 0.5rem;
+    }
+}
+
+#description {
+    display: none;
+    text-align: justify;
+    margin-top: -1rem;
+}
+
+#description.show {
+    display: block;
+}
+
+#description-link{
+    display: inline;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#description-link:hover{
+    color: #0056b3;
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    #description-link {
+        display: inline;
+        font-size: 1rem;
+        color: #007bff;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 1rem;
+        font-weight: bold;
+    }
+}
+
+/* View account page */
+
+/* Custom Shepherd.js modern styles */
+.shepherd-theme-modern .shepherd-step {
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow: hidden;
+    border: 1px solid #e3e3e3;
+    position: relative;
+}
+
+/* Header */
+.shepherd-theme-modern .shepherd-header {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    background-image: url('images/tour_bg.svg') !important;
+    color: #fff;
+}
+
+/* Title */
+.shepherd-theme-modern .shepherd-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
+
+/* Close button */
+.shepherd-theme-modern .shepherd-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+/* Container */
+.shepherd-theme-modern .shepherd-content {
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.375rem;
+}
+
+/* Footer */
+.shepherd-theme-modern .shepherd-footer {
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 0 0 0.375rem 0.375rem;
+}
+
+/* Button styles */
+.shepherd-cancel-icon {
+    font-weight: bold;  /* Make the text bold */
+    color: white !important; /* Set the text color to white */
+}
+
+.shepherd-cancel-icon:hover {
+    color: red !important; /* Change the text color to red on hover */
+}
+
+.shepherd-theme-modern .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.shepherd-theme-modern .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    margin-left: 0.5rem;
+}
+
+.shepherd-theme-modern .btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.shepherd-theme-modern .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.shepherd-theme-modern .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .shepherd-theme-modern .shepherd-step {
+        border-radius: 0.25rem;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+    }
+
+    .shepherd-theme-modern .shepherd-header {
+        padding: 0.5rem 1rem;
+    }
+
+    .shepherd-theme-modern .shepherd-title {
+        font-size: 1rem;
+    }
+
+    .shepherd-theme-modern .shepherd-close {
+        font-size: 1.25rem;
+    }
+
+    .shepherd-theme-modern .shepherd-content {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .shepherd-theme-modern .shepherd-footer {
+        padding: 0.75rem;
+    }
+
+    .shepherd-theme-modern .btn {
+        padding: 0.25rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
+
+
+.circular-logo {
+    width: 85px; /* Increased size */
+    height: 85px; /* Increased size */
+    border-radius: 50%;
+    margin-right: 10px; /* Space between logo and text */
+    position: relative;
+    cursor: pointer;
+    top: -7px; /* Adjusted to move the logo slightly upwards */
+    box-shadow: 0px 2px 8px rgba(57, 57, 57, 0.4); /* Adjusted shadow effect for all-around */
+}
+
+/* URL account company */
+.title-and-url {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.title-url-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack title and URL vertically */
+}
+
+.title-url-wrapper h1 {
+    margin: 0; /* Remove default margins */
+}
+
+.company-url {
+    font-size: 0.87em; /* Adjust font size if needed */
+    font-weight: bold;
+    margin-top: 0rem; /* Move the URL slightly down */
+    margin-bottom: 2em; /* Move the user's details slightly down */
+}
+
+.company-url a {
+    text-decoration: none; /* Remove underline from the link */
+}
+
+.company-url a:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .title-and-url {
+        flex-direction: row; /* Keep elements in a row */
+        align-items: flex-start; /* Align items to the top */
+        flex-wrap: wrap; /* Allow wrapping */
+    }
+    
+    .title-url-wrapper {
+        flex: 1 1 auto; /* Allow the wrapper to grow and shrink */
+        min-width: 0; /* Allow the wrapper to shrink to fit */
+    }
+
+    .title-url-wrapper h1 {
+        margin-left: 0.5rem; /* Add margin if it wraps */
+    }
+    
+    .company-url {
+        margin-left: 0.5rem; /* Add some left margin */
+        margin-top: 0rem; /* Small gap between h1 and URL */
+        margin-bottom: 2.5em; /* Move the user's details slightly down */
+        font-size: 0.8em; /* Adjust font size if needed */
+        font-weight: bold;
+    }
+
+    .title-with-border {
+        font-size: 24px !important;
+    }
+
+    .circular-logo {
+        width: 80px; /* Increased size */
+        height: 80px; /* Increased size */
+    }
+}
+
+.view-account-content {
+    position: relative;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    border: 1px solid #dee2e6;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-top: 130px;
+    position: relative;
+}
+
+.key-button {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 70px;
+    height: 70px;
+    background-color: #007bff;
+    background-image: url('images/key_bg.svg');
+    box-shadow: 0 0 10px 5px rgba(255, 249, 211, 0.45) !important;
+    background-size: 140%;
+    background-position: center;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.key-button:hover {
+    background-color: #0056b3;
+    background-image: url('images/key_bg.svg');
+    background-size: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+
+.key-button i {
+    font-size: 1.75rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.cover-rectangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1;
+    pointer-events: none; /* Make sure the rectangle does not interfere with text interaction */
+}
+
+.lighter-font {
+    position: relative; /* Ensure relative positioning for .cover-rectangle to work */
+    display: inline-block; /* Ensures the span takes up only the necessary width */
+}
+
+
+.view-account-content h1 {
+    font-size: 2.5rem;
+    color: #343a40;
+    text-align: left;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.view-account-content .account-details {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #495057;
+}
+
+.view-account-content .account-details p {
+    padding: 0.5rem 0;
+}
+
+.view-account-content .account-details i {
+    margin-right: 0.5rem;
+    color: #007bff;
+}
+
+.view-account-content .btn-update, 
+.view-account-content .btn-delete {
+    font-weight: bold;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.view-account-content .btn-back {
+    background-color: #007bff;
+}
+
+.view-account-content .btn-back:hover {
+    background-color: #0056b3;
+}
+
+.view-account-content .btn-update {
+    background-color: #007bff;
+    margin-left: 10px; /* Add some space between buttons */
+}
+
+.view-account-content .btn-update:hover {
+    background-color: #0056b3;
+}
+
+.view-account-content .btn-delete {
+    background-color: #dc3545;
+    margin-left: 10px; /* Add some space between buttons */
+}
+
+.view-account-content .btn-delete:hover {
+    background-color: #c82333;
+}
+
+.banner {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 70%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    transform: translateX(-50%);
+    border-radius: 0.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .content-block {
+        padding: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .container.mt-5 {
+        margin-left: 0;
+        margin-top: 100px;
+    }
+
+    .dashboard-links a {
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .add-account-form .form-group, .update-account-form .form-group {
+        flex: 0 0 100%;
+    }
+
+    .view-account-content h1 {
+        font-size: 2rem;
+    }
+
+    .banner {
+        height: 150px;
+        top: 90px;
+        margin-top: 60px;
+        width: 380px;
+    }
+
+    .key-button {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Google Sign In Option */
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-transform: none;
+    margin-top: 1rem; /* Ensuring spacing from the separator */
+    margin-bottom: -1em;
+}
+
+.google-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.separator-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0; /*/Bg_Colors/Desktop/Light-Mode/Reduced margin to minimize separation */
+}
+
+.separator {
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+    margin: 0 10px;
+}
+
+.separator-text {
+    padding: 0 10px;
+    color: #666;
+}
+
+/* Text for Already have... */
+form .small.text-muted {
+    display: block;
+    text-align: center;
+    margin-top: 1rem; /* Adjust as needed to align with the submit button */
+    margin-bottom: 0; /* No margin below */
+    color: #000; /* Black text color */
+    font-weight: 600; /* Slightly bolder text */
+    font-size: 16px; 
+}
+
+.text-primary {
+    color: #007bff !important; /* Black text color for links */
+    font-weight: 600; /* Slightly bolder text */
+    text-decoration: none; /* Remove text decoration */
+}
+
+.text-primary:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Login title container */
+.login-title-container {
+    margin-bottom: 1rem;
+}
+
+.login-title-container .small {
+    display: inline-block;
+    margin-top: -10px; /* Adjust as needed to prevent extra space */
+}
+
+/* Register - username availability check */
+#username-availability {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.username-available {
+    color: green;
+    font-weight: bold;
+}
+
+.username-taken {
+    color: red;
+    font-weight: bold;
+}
+
+.input-error {
+    border-width: 0.15rem;
+    border-color: red;
+    background-color: rgb(254, 250, 250);
+}
+
+.input-valid {
+    border-width: 0.15rem;
+    border-color: green;
+    background-color: rgb(246, 250, 246);
+}
+
+/* Underline effect for Login/Register title */
+.login-title-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.login-title-container h1 {
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.login-title-container h1::after {
+    content: '';
+    display: block;
+    width: 50px; /* underline width */
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 2px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+/* Custom styles for form container */
+.card.login-card, .card.delete-card {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for Delete Account page */
+.delete-title-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.delete-title-container h1 {
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.delete-title-container h1::after {
+    content: '';
+    display: block;
+    width: 50px; /* underline width */
+    height: 4px;
+    background-color: #dc3545; /* different color for delete */
+    border-radius: 2px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+/* Hide individual action buttons on mobile devices */
+@media (max-width: 767.98px) {
+    .d-md-inline {
+        display: none !important;
+    }
+    .d-md-none {
+        display: block !important;
+    }
+}
+
+/* Custom modal styles */
+.custom-action-modal .custom-action-modal-content {
+    border-radius: 0.5rem;
+}
+
+.custom-action-modal-header {
+    border-bottom: none;
+}
+
+.custom-action-close {
+    margin: -1rem -1rem -1rem auto;
+    padding: 0.75rem 1.25rem;
+    color: #000;
+    font-size: 1.25rem;
+}
+
+.custom-action-modal-body .custom-action-button {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Unique styles for dashboard links */
+.dashboard-links a.custom-dashboard-button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    display: inline-block; /* Ensure buttons stay inline */
+    width: auto; /* Default width */
+}
+
+.dashboard-links a.custom-dashboard-button:hover {
+    background-color: #0056b3;
+}
+
+.dashboard-links a.custom-dashboard-delete-button {
+    background-color: #dc3545;
+    display: inline-block; /* Ensure buttons stay inline */
+    width: auto; /* Default width */
+}
+
+.dashboard-links a.custom-dashboard-delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Adjust button width for smaller screens */
+@media (max-width: 576px) {
+    .dashboard-links a.custom-dashboard-button,
+    .dashboard-links a.custom-dashboard-delete-button {
+        width: 70%; /*/Bg_Colors/Desktop/Light-Mode/Reduce width to 80% of container */
+        margin-bottom: 10px; /* Add margin for spacing between buttons */
+    }
+}
+
+/* Delete specific account confirmation */
+.confirm-delete-modal-content {
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.5); /*/Bg_Colors/Desktop/Light-Mode/Red glow */
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2em;
+}
+
+.confirm-delete-modal-header {
+    background-image: url('images/delete_bg.svg');
+    color: white; /* White text */
+    border-top-left-radius: 5px; /* Rounded corners */
+    border-top-right-radius: 5px; /* Rounded corners */
+}
+
+.confirm-description {
+    background-image: url('images/descr_bg.svg');
+    color: white; /* White text */
+    border-top-left-radius: 5px; /* Rounded corners */
+    border-top-right-radius: 5px; /* Rounded corners */
+}
+
+/* Center the modal */
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+/* Change color of the magnifying glass button */
+#toggle-search-btn {
+    background-color: #00224D;
+    border-color: #00224D;
+    color: white;
+}
+
+#toggle-search-btn:hover {
+    background-color: #001A3D;
+    border-color: #001A3D;
+    color: white;
+}
+
+.dashboard-title {
+    color: #00224D;
+}
+
+/* Alert messages */
+.alert-container {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    width: 100%;
+    max-width: 600px;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column; /* Stack alerts vertically */
+    align-items: center; /* Center the alert */
+    gap: 10px; /* Add gap between alerts */
+}
+
+.alert-container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure it uses the full container width */
+    padding: 0.75rem 1.25rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure it uses the full container width */
+    padding: 0.75rem 1.25rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure it uses the full container width */
+    padding: 0.75rem 1.25rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure it uses the full container width */
+    padding: 0.75rem 1.25rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.alert-container .close {
+    align-self: center;
+    color: inherit;
+}
+
+.alert-container .fade {
+    opacity: 0;
+    transition: opacity 0.15s linear;
+}
+
+.alert-container .show {
+    opacity: 1;
+}
+
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 0.75rem 1.25rem;
+    z-index: 1050;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-alert .close-alert {
+    background: none;
+    border: none;
+    color: #155724;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Dropdown styling */
+#category-dropdown {
+    min-width: 150px; /* Adjust as needed */
+    padding: 8px; /* Adjust as needed */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+/* ¿Forgot your password? */
+.password-group {
+    position: relative; /* Ensure the container is relative for absolute positioning */
+    margin-bottom: 45px; /* Add space below the password field */
+}
+
+.forgot-password-link {
+    position: absolute;
+    top: 45px; /* Adjust the top margin to create space above */
+    bottom: -20px; /* Adjust this value as needed for positioning */
+    left: 0; /* Position to the left */
+    font-size: 0.9rem; /* Smaller font size */
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.forgot-password-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/* User page */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 65vh; /* Use viewport height to center vertically */
+    flex-direction: column; /* Ensure vertical centering */
+}
+
+.profile-card {
+    box-shadow: 0px 8px 60px -10px rgba(13,28,39,0.6);
+    border-radius: 10px;
+    width: 800px;
+    max-width: 90%;
+    padding-top: 80px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: #fff;
+}
+
+.profile-img-container {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;  /* Increased size */
+    height: 180px; /* Increased size */
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0px 5px 50px 0px rgb(68, 132, 252), 0px 0px 0px 7px rgba(74, 77, 255, 0.5);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    padding: 30px;
+}
+
+.profile-info h2 {
+    margin: 20px 0;
+    font-size: 2em;
+    color: #447fff;
+}
+
+.profile-info p {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #324e63;
+    margin-bottom: 15px;
+}
+
+.date-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px;
+}
+
+/* Default: show long date and hide short date */
+.long-date {
+    display: block;
+}
+.short-date {
+    display: none;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .profile-card {
+        width: 100%;
+        padding-top: 60px;
+    }
+
+    .profile-img-container {
+        width: 128px;
+        height: 128px;
+        width: 110px;
+        height: 110px;
+        top: -40px;
+        box-shadow: 0px 4px 25px 0px rgb(68, 132, 252), 0px 0px 0px 4.5px rgba(74, 77, 255, 0.5);
+    }
+
+    .profile-info {
+        padding: 20px;
+    }
+
+    .profile-info h2 {
+        font-size: 1.5em;
+        margin: 12px 0;
+    }
+
+    .profile-info p {
+        font-size: 1em;
+    }
+
+    .date-container {
+        top: 7.5px;
+        left: 7.5px;
+        padding: 1px;
+    }
+
+    /* Mobile devices: show short date and hide long date */
+    .long-date {
+        display: none;
+    }
+    .short-date {
+        display: block;
+        font-size: 0.8rem;
+    }
+}
+
+/*Footer*/
+.glass-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    color: #00224d; /* Text color */
+    font-size: 1.25rem;
+    transform: translateY(100%); /* Initially hidden */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.glass-footer p {
+    display: inline; /* Make the background highlight only the text */
+    background-color: #f8f9fa; /* Highlight color */
+    color: #00224d; /* Text color for contrast */
+    padding: 0.2rem 0.5rem; /* Space around the text */
+    border-radius: 0.2rem; /* Rounded corners for a more subtle effect */
+}
+
+.developer-name {
+    color: #007bff;
+}
+
+.glass-footer.visible {
+    transform: translateY(0); /* Slide into view */
+}
+
+.pointer-cursor {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .glass-footer p {
+        font-size: 0.75rem; /* Adjust font size for mobile */
+    }
+}
+  

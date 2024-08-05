@@ -1,0 +1,26 @@
+<!-- user_account.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-card">
+        <div class="date-container">
+            <p class="long-date">{{ long_date }}</p>
+            <p class="short-date">{{ short_date }}</p>
+        </div>
+        <div class="profile-img-container">
+            <img src="{{ profile_picture_url }}" alt="Profile Picture" class="profile-img">
+        </div>
+        <div class="profile-info">
+            <h2>{{ session['username'] | capitalize_full }}</h2>
+            <p>You have stored <strong>{{ num_accounts }} accounts</strong> with NoteUp!</p>
+        </div>
+        <div class="dashboard-links">
+            <a href="mailto:mbmanishweb@gmail.com?subject=NoteUp&body=Dear%20developer,%0D%0A%0D%0AI%20have%20a%20question%20regarding%20NoteUp.%20%0D%0A%0D%0AThank%20you.%0D%0A%0D%0A" class="btn btn-primary custom-dashboard-button">
+                <i class="fas fa-envelope"></i> Contact developer
+            </a>            
+            <a href="{{ url_for('delete_user') }}" class="btn btn-danger custom-dashboard-delete-button"><i class="fas fa-trash"></i> Delete account</a>
+        </div>    
+    </div>
+</div>
+{% endblock %}

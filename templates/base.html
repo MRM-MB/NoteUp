@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteUp</title>
+    <link rel="icon" type="image/jpeg" href="../static/images/logo.jpeg">
+    
+    <!-- Bootstrap and Google CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shepherd.js/8.1.0/css/shepherd.css">    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css"></head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
+<body>
+    <div class="bottom-right-image"></div>
+    <style>
+        .bottom-right-image {
+            position: fixed;
+            bottom: -80px;
+            right: -50px;
+            width: 780px;
+            height: 780px;
+            background: url('../static/images/right_img.svg') no-repeat;
+            background-size: contain;
+            transform: rotate(10deg); /* Adjust the angle as needed */
+            transform-origin: bottom right; /* Optional: Adjust origin if needed */
+        }
+    
+        /* Adjust for tablets */
+        @media (max-width: 1024px) {
+            .bottom-right-image {
+                width: 500px;
+                height: 500px;
+                bottom: -50px;
+                right: 10px;
+            }
+        }
+    
+        /* Adjust for mobile devices */
+        @media (max-width: 768px) {
+            .bottom-right-image {
+                width: 425px;
+                height: 425px;
+                bottom: -42px;
+                right: -25px;
+            }
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+            <span class="unique-n">N</span>
+            <span class="noteUp">oteUp</span>
+          </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if 'username' in session %}
+                <li class="nav-item" style="margin-right: 1.5rem;">
+                    <a class="nav-link" href="{{ url_for('dashboard') }}">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item" style="margin-right: 1.5rem;">
+                    <a class="nav-link" href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item" style="margin-right: 1.5rem;">
+                    <a class="nav-link" href="{{ url_for('login') }}">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </li>
+                <li class="nav-item" style="margin-right: 1.5rem;">
+                    <a class="nav-link" href="{{ url_for('register') }}">
+                        <i class="fas fa-user"></i> Register
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    <div class="alert-container">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Glass Footer -->
+    <footer class="glass-footer">
+        <div class="mx-auto text-center">
+            <p>&copy; <span id="currentYear"></span> <span class="unique-n">N</span>oteUp by <span class="developer-name">Manish Raj Moriche</span>. All rights reserved.</p>
+        </div>
+    </footer>    
+
+    <!-- Linking the JavaScript file for the Time Log Out -->
+    <script src="{{ url_for('serve_scripts', filename='inactivity.js') }}"></script>
+
+    <!-- Full jQuery, Popper.js, Bootstrap JS and more -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shepherd.js/8.1.0/js/shepherd.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.alert').alert('close');
+            }, 3500);
+            // Trigger the show class to make alerts visible
+            $('.alert-container').addClass('show');
+
+            // Navbar toggle script for mobile view
+            $('.navbar-toggler').on('click', function() {
+                $('#navbarNav').collapse('toggle');
+            });
+        });
+
+        // Function to expand the Background Image Smoothly
+        // Debounce function to limit the rate at which checkScrollbar is called during resize
+        function debounce(func, delay) {
+            let timer;
+            return function() {
+                clearTimeout(timer);
+                timer = setTimeout(func, delay);
+            };
+        }
+
+        function checkScrollbar() {
+            if (window.innerWidth <= 768) {
+                if (document.documentElement.scrollHeight > window.innerHeight) {
+                    document.body.style.transition = 'height 0.3s ease'; // Adding CSS transition
+                    document.body.style.height = '125%';
+                } else {
+                    document.body.style.transition = 'height 0.3s ease'; // Adding CSS transition
+                    document.body.style.height = '100%';
+                }
+            } else {
+                document.body.style.transition = 'none'; // Remove transition for larger screens
+                document.body.style.height = ''; // Reset height to auto
+            }
+        }
+
+        // Wrap checkScrollbar in a debounced function to optimize performance during resize
+        const debouncedCheckScrollbar = debounce(checkScrollbar, 100);
+
+        window.addEventListener('load', checkScrollbar);
+        window.addEventListener('resize', debouncedCheckScrollbar);
+        window.addEventListener('scroll', checkScrollbar);
+
+        // Footer Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+        var footer = document.querySelector('.glass-footer');
+        var footerVisible = false;
+        var footerHeight = footer.offsetHeight;
+        var threshold = 50; // Distance from the bottom to trigger footer visibility
+        var body = document.body; // Reference to the body element
+
+        // Function to toggle footer visibility and cursor style based on cursor position
+        function toggleFooterVisibility(event) {
+            var cursorY = window.innerHeight - event.clientY;
+
+            if (cursorY < threshold) {
+                footer.classList.add('visible');
+                body.classList.add('pointer-cursor');
+                footerVisible = true;
+            } else {
+                footer.classList.remove('visible');
+                body.classList.remove('pointer-cursor');
+                footerVisible = false;
+            }
+        }
+
+        // Function to toggle footer visibility based on scroll position
+        function toggleFooterOnScroll() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var windowHeight = window.innerHeight;
+            var documentHeight = document.documentElement.scrollHeight;
+            var nearBottom = (scrollTop + windowHeight) >= (documentHeight - footerHeight);
+
+            if (nearBottom) {
+                footer.classList.add('visible');
+                body.classList.add('pointer-cursor');
+                footerVisible = true;
+            } else if (!footerVisible) {
+                footer.classList.remove('visible');
+                body.classList.remove('pointer-cursor');
+            }
+        }
+
+        // Scroll event listener
+        window.addEventListener('scroll', toggleFooterOnScroll);
+
+        // Mouse move event listener
+        window.addEventListener('mousemove', toggleFooterVisibility);
+
+        // Initial setup to ensure footer is hidden
+        footer.classList.remove('visible');
+        body.classList.remove('pointer-cursor');
+    });
+
+    // Get the current year
+    const currentYear = new Date().getFullYear();
+    document.getElementById('currentYear').textContent = currentYear;
+    </script>
+</body>
+</html>

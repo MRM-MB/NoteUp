@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card login-card">
+                <div class="card-body">
+                    <div class="login-title-container">
+                        <h1 class="card-title mb-4">Login</h1>
+                    </div>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <div class="password-group">
+                                <input type="password" class="form-control" id="password" name="password" autocomplete="off" required>
+                                <!-- Forgot Password Link -->
+                                <a href="{{ url_for('recover_password') }}" class="forgot-password-link" id="forgot-password-link">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <p class="small text-muted text-center">New here? <a href="{{ url_for('register') }}" class="text-primary">Register</a></p>
+                    </form>
+                    <!-- Separator Line -->
+                    <div class="separator-container">
+                        <hr class="separator">
+                        <span class="separator-text">or</span>
+                        <hr class="separator">
+                    </div>
+                    <!-- Add Google Login Button -->
+                    <div class="mt-3 text-center">
+                        <a href="{{ url_for('google_login') }}" class="btn btn-outline-dark btn-block google-button" id="google-login-button">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png" alt="Google logo" class="google-logo"> Continue with Google
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var forgotPasswordLink = document.getElementById('forgot-password-link');
+
+        // Initialize Tippy.js for the forgot password link
+        var tooltipInstance = tippy(forgotPasswordLink, {
+            content: 'Not to worry! Even the best of us can misplace our keys to the kingdom! 🏯',
+            allowHTML: true,
+            trigger: 'mouseenter',
+            theme: 'light',
+            placement: 'bottom',
+            arrow: true
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var googleLoginButton = document.getElementById('google-login-button');
+
+        // Initialize Tippy.js for the Google login button
+        var tooltipInstance = tippy(googleLoginButton, {
+            content: 'Boost your security by logging in with Google and activating two-factor authentication.',
+            allowHTML: true,
+            placement: 'top',
+            arrow: true
+        });
+    });
+</script>
+
+{% endblock %}

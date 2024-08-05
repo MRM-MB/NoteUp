@@ -1,0 +1,292 @@
+/* Background change for companies (View Account) - Desktop*/
+
+/* Blue */
+.change-Lblue {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Blue/bg-blue.svg');
+}
+.change-Dblue {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Blue/bg-blue.svg');
+}
+
+/* Teal */
+.change-Lteal {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Blue/bg-teal.svg');
+}
+.change-Dteal {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Blue/bg-teal.svg');
+}
+
+/* Black */
+.change-Lblack {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Dark/bg-black.svg');
+}
+.change-Dblack {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Dark/bg-black.svg');
+}
+
+/* Brown */
+.change-Lbrown {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Dark/bg-brown.svg');
+}
+.change-Dbrown {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Dark/bg-brown.svg');
+}
+
+/* Teak */
+.change-Lteak {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Dark/bg-teak.svg');
+}
+.change-Dteak {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Dark/bg-teak.svg');
+}
+
+/* Dark Green */
+.change-Ldarkgreen {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Green/bg-darkgreen.svg');
+}
+.change-Ddarkgreen {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Green/bg-darkgreen.svg');
+}
+
+/* Green */
+.change-Lgreen {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Green/bg-green.svg');
+}
+.change-Dgreen {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Green/bg-green.svg');
+}
+
+/* Orange */
+.change-Lorange {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Orange/bg-orange.svg');
+}
+.change-Dorange {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Orange/bg-orange.svg');
+}
+
+/* Dark Orange */
+.change-Ldarkorange {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Orange/bg-orange.svg');
+}
+.change-Ddarkorange {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Orange/bg-darkorange.svg');
+}
+
+/* Neon Orange */
+.change-Lneonorange {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Orange/bg-neonorange.svg');
+}
+.change-Dneonorange {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Orange/bg-neonorange.svg');
+}
+
+/* Pink */
+.change-Lpink {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Purple-Pink/bg-pink.svg');
+}
+.change-Dpink {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Purple-Pink/bg-pink.svg');
+}
+
+/* Purple */
+.change-Lpurple {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Purple-Pink/bg-purple.svg');
+}
+.change-Dpurple {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Purple-Pink/bg-purple.svg');
+}
+
+/* Dark Red */
+.change-Ldarkred {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Red/bg-darkred.svg');
+}
+.change-Ddarkred {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Red/bg-darkred.svg');
+}
+
+/* Rausch */
+.change-Lrausch {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Red/bg-rausch.svg');
+}
+.change-Drausch {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Red/bg-rausch.svg');
+}
+
+/* Red */
+.change-Lred {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Red/bg-red.svg');
+}
+.change-Dred {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Red/bg-red.svg');
+}
+
+/* Gold */
+.change-Lgold {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Yellow/bg-gold.svg');
+}
+.change-Dgold {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Yellow/bg-gold.svg');
+}
+
+/* Lime */
+.change-Llime {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Yellow/bg-yellow.svg');
+}
+.change-Dlime {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Yellow/bg-lime.svg');
+}
+
+/* Yellow */
+.change-Lyellow {
+    background-image: url('images/Bg_Colors/Desktop/Light-Mode/Yellow/bg-yellow.svg');
+}
+.change-Dyellow {
+    background-image: url('images/Bg_Colors/Desktop/Dark-Mode/Yellow/bg-yellow.svg');
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    /* Blue */
+    .change-Lblue {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Blue/bg-blue.svg');
+    }
+    .change-Dblue {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Blue/bg-blue.svg');
+    }
+
+    /* Teal */
+    .change-Lteal {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Blue/bg-teal.svg');
+    }
+    .change-Dteal {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Blue/bg-teal.svg');
+    }
+
+    /* Black */
+    .change-Lblack {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Dark/bg-black.svg');
+    }
+    .change-Dblack {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Dark/bg-black.svg');
+    }
+
+    /* Brown */
+    .change-Lbrown {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Dark/bg-brown.svg');
+    }
+    .change-Dbrown {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Dark/bg-brown.svg');
+    }
+
+    /* Teak */
+    .change-Lteak {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Dark/bg-teak.svg');
+    }
+    .change-Dteak {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Dark/bg-teak.svg');
+    }
+
+    /* Dark Green */
+    .change-Ldarkgreen {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Green/bg-darkgreen.svg');
+    }
+    .change-Ddarkgreen {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Green/bg-darkgreen.svg');
+    }
+
+    /* Green */
+    .change-Lgreen {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Green/bg-green.svg');
+    }
+    .change-Dgreen {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Green/bg-green.svg');
+    }
+
+    /* Orange */
+    .change-Lorange {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Orange/bg-orange.svg');
+    }
+    .change-Dorange {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Orange/bg-orange.svg');
+    }
+
+    /* Dark Orange */
+    .change-Ldarkorange {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Orange/bg-orange.svg');
+    }
+    .change-Ddarkorange {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Orange/bg-darkorange.svg');
+    }
+
+    /* Neon Orange */
+    .change-Lneonorange {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Orange/bg-neonorange.svg');
+    }
+    .change-Dneonorange {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Orange/bg-neonorange.svg');
+    }
+
+    /* Pink */
+    .change-Lpink {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Purple-Pink/bg-pink.svg');
+    }
+    .change-Dpink {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Purple-Pink/bg-pink.svg');
+    }
+
+    /* Purple */
+    .change-Lpurple {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Purple-Pink/bg-purple.svg');
+    }
+    .change-Dpurple {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Purple-Pink/bg-purple.svg');
+    }
+
+    /* Dark Red */
+    .change-Ldarkred {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Red/bg-darkred.svg');
+    }
+    .change-Ddarkred {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Red/bg-darkred.svg');
+    }
+
+    /* Rausch */
+    .change-Lrausch {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Red/bg-rausch.svg');
+    }
+    .change-Drausch {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Red/bg-rausch.svg');
+    }
+
+    /* Red */
+    .change-Lred {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Red/bg-red.svg');
+    }
+    .change-Dred {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Red/bg-red.svg');
+    }
+
+    /* Gold */
+    .change-Lgold {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Yellow/bg-gold.svg');
+    }
+    .change-Dgold {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Yellow/bg-gold.svg');
+    }
+
+    /* Lime */
+    .change-Llime {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Yellow/bg-yellow.svg');
+    }
+    .change-Dlime {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Yellow/bg-lime.svg');
+    }
+
+    /* Yellow */
+    .change-Lyellow {
+        background-image: url('images/Bg_Colors/Phone/Light-Mode/Yellow/bg-yellow.svg');
+    }
+    .change-Dyellow {
+        background-image: url('images/Bg_Colors/Phone/Dark-Mode/Yellow/bg-yellow.svg');
+    }
+}

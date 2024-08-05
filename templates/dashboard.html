@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="d-flex align-items-center">
+        <h1 class="mr-2 dashboard-title">Dashboard</h1>
+        <button id="toggle-search-btn" class="btn btn-secondary ml-2 align-self-start" style="margin-top: 3px;">
+            <i class="fas fa-search"></i>
+        </button>
+        <button id="filter-btn" class="btn btn-secondary ml-2 align-self-start" style="margin-top: 3px;">
+            <i class="fas fa-filter"></i>
+        </button>
+    </div>
+    <!-- Welcome user -->   
+    <p class="welcome-text"><span class="wave">👋</span> Welcome, {{ session['username'] | capitalize_full }}!</p>
+
+    <!-- Buttons for Dashboard -->
+    <div class="dashboard-links">
+        <a href="{{ url_for('add_account') }}" class="btn btn-primary custom-dashboard-button"><i class="fas fa-plus"></i> Add Account</a>        
+        <a href="{{ url_for('user_account') }}" class="btn btn-danger custom-dashboard-delete-button" style="z-index: 9999; position: relative;">
+            <i class="fas fa-user"></i> Profile
+        </a>        
+    </div>
+
+    <!-- Search Inputs -->
+    <div id="search-container" class="row mb-3" style="display: none;">
+        <div class="col-md-4 mb-2">
+            <input type="text" id="search-company-input" class="form-control" placeholder="Search by company name">
+        </div>
+        <div class="col-md-4 mb-2">
+            <input type="text" id="search-user-input" class="form-control" placeholder="Search by username">
+        </div>
+        <div class="col-md-4 mb-2">
+            <input type="text" id="search-year-input" class="form-control" placeholder="Search by year of creation">
+        </div>
+    </div>
+
+    <!-- Filter Category -->
+    <div id="filter-container" class="row mb-3" style="display: none;">
+        <div class="col-md-4 mb-2">
+            <select id="category-dropdown" class="form-control">
+                <option value="">All</option>
+                {% for category in company_categories.values()|unique %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover w-100">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="full-text">Company name</span>
+                        <span class="short-text">Company</span>
+                    </th>
+                    <th>
+                        <span class="full-text">User</span>
+                        <span class="short-text">User</span>
+                    </th>
+                    <th>
+                        <span class="full-text">Year of Creation</span>
+                        <span class="short-text">Year</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="account-table">
+                {% for account in accounts %}
+                <tr class="clickable-row" data-href="{{ url_for('view_account', account_index=loop.index0) }}" data-category="{{ company_categories.get(account.name.lower(), '') }}">
+                    <td>
+                        {% set company_name = account.name.lower() %}
+                        {% if company_name in company_logos %}
+                            <img src="{{ company_logos[company_name] }}" alt="{{ account.name }} Logo" class="company-logo">
+                        {% else %}
+                            <strong class="company-name">{{ account.name }}</strong>
+                        {% endif %}
+                    </td>
+                    <td>{{ account.username | lower | capitalize }}</td>
+                    <td>{{ account.year_of_creation }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleSearchBtn = document.getElementById('toggle-search-btn');
+        const filterBtn = document.getElementById('filter-btn');
+        const searchContainer = document.getElementById('search-container');
+        const filterContainer = document.getElementById('filter-container');
+        const searchCompanyInput = document.getElementById('search-company-input');
+        const searchUserInput = document.getElementById('search-user-input');
+        const searchYearInput = document.getElementById('search-year-input');
+        const categoryDropdown = document.getElementById('category-dropdown');
+        const tableRows = document.querySelectorAll('#account-table tr.clickable-row');
+
+        toggleSearchBtn.addEventListener('click', function () {
+            searchContainer.style.display = searchContainer.style.display === 'none' ? 'flex' : 'none';
+            filterContainer.style.display = 'none'; // Ensure filter container is hidden when search is active
+        });
+
+        filterBtn.addEventListener('click', function () {
+            filterContainer.style.display = filterContainer.style.display === 'none' ? 'flex' : 'none';
+            searchContainer.style.display = 'none'; // Ensure search container is hidden when filter is active
+        });
+
+        function filterTable() {
+            const companyQuery = searchCompanyInput.value.toLowerCase();
+            const userQuery = searchUserInput.value.toLowerCase();
+            const yearQuery = searchYearInput.value.toLowerCase();
+            const categoryQuery = categoryDropdown.value.toLowerCase();
+
+            tableRows.forEach(row => {
+                const companyNameElement = row.querySelector('td:first-child');
+                const userNameElement = row.querySelector('td:nth-child(2)');
+                const yearElement = row.querySelector('td:nth-child(3)');
+                const img = companyNameElement.querySelector('img');
+                let companyName = '';
+
+                if (img) {
+                    companyName = img.alt.toLowerCase();
+                } else {
+                    companyName = companyNameElement.textContent.trim().toLowerCase();
+                }
+
+                const userName = userNameElement.textContent.trim().toLowerCase();
+                const year = yearElement.textContent.trim().toLowerCase();
+                const category = row.getAttribute('data-category').toLowerCase();
+
+                if (companyName.includes(companyQuery) && userName.includes(userQuery) && year.includes(yearQuery) && (categoryQuery === '' || category === categoryQuery)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        searchCompanyInput.addEventListener('keyup', filterTable);
+        searchUserInput.addEventListener('keyup', filterTable);
+        searchYearInput.addEventListener('keyup', filterTable);
+        categoryDropdown.addEventListener('change', filterTable);
+
+        tableRows.forEach(row => {
+            row.addEventListener('click', function () {
+                window.location.href = row.getAttribute('data-href');
+            });
+        });
+    });
+</script>
+{% endblock %}

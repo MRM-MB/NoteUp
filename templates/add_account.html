@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="alert-container" class="alert-container"></div> <!-- Placeholder for alert message above container -->
+<div class="container mt-5 add-account-container">
+    <div class="card shadow-sm add-account-card">
+        <div class="card-body">
+            <h1 class="mb-4 add-account-heading">Add Account</h1>
+            <form method="post" class="add-account-form" id="add-account-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="account_name">Company Name:</label>
+                        <input type="text" class="form-control" id="account_name" name="account_name" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="account_user">User:</label>
+                        <input type="text" class="form-control" id="account_user" name="account_user" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="account_password">Password:</label>
+                        <input type="password" class="form-control" id="account_password" name="account_password" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="year_of_creation">Year of Creation:</label>
+                        <input type="text" class="form-control" id="year_of_creation" name="year_of_creation" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="d-none">Description:</label>
+                        <textarea class="form-control d-none" id="description" name="description" rows="3" autocomplete="off"></textarea>
+                        <button type="button" class="btn btn-secondary btn-sm btn-block" id="add-description-btn">Add Description</button>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Add Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for adding description -->
+<div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header confirm-description">
+                <h5 class="modal-title" id="descriptionModalLabel">Add Description</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modal_description">Description:</label>
+                    <textarea class="form-control" id="modal_description" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="save-description-btn">Save Description</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const addDescriptionBtn = document.getElementById("add-description-btn");
+        const descriptionField = document.getElementById("description");
+        const modalDescriptionField = document.getElementById("modal_description");
+        const saveDescriptionBtn = document.getElementById("save-description-btn");
+    
+        addDescriptionBtn.addEventListener("click", function() {
+            $('#descriptionModal').modal('show');
+        });
+    
+        saveDescriptionBtn.addEventListener("click", function() {
+            descriptionField.value = modalDescriptionField.value;
+            descriptionField.classList.remove("d-none");
+            $('#descriptionModal').modal('hide');
+            addDescriptionBtn.textContent = "Edit Description";
+        });
+
+        const form = document.getElementById("add-account-form");
+        const yearField = document.getElementById("year_of_creation");
+        const alertContainer = document.getElementById("alert-container");
+
+        form.addEventListener("submit", function(event) {
+            const year = parseInt(yearField.value);
+            const currentYear = new Date().getFullYear();
+            
+            if (!/^\d{4}$/.test(yearField.value) || year > currentYear) {
+                event.preventDefault();
+                alertContainer.innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Please enter a valid four-digit year that does not surpass ${currentYear}.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                `;
+                setTimeout(function() {
+                    const alertElement = alertContainer.querySelector('.alert');
+                    if (alertElement) {
+                        alertElement.classList.remove('show');
+                        alertElement.classList.add('fade');
+                        setTimeout(function() {
+                            alertElement.remove();
+                        }, 150); // Matches the CSS transition duration
+                    }
+                }, 3000); // 3 seconds
+            } else {
+                alertContainer.innerHTML = ''; // Clear any existing alerts
+            }
+        });
+    });
+</script>
+{% endblock %}

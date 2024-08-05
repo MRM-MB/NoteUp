@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card login-card">
+                <div class="card-body">
+                    <div class="login-title-container">
+                        <h1 class="card-title mb-2">Register</h1>
+                    </div>
+                    <form method="post" id="register-form">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username" autocomplete="off" required>
+                            <span id="username-availability"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" autocomplete="off" required>
+                        </div>                                             
+                        <!-- Security Questions -->
+                        <div class="form-group">
+                            <label id="security_question_label" for="security_question1" style="cursor: pointer;">Security Question:</label>
+                            <select class="form-control" id="security_question1" name="security_question1" autocomplete="off" required size="1">
+                                <option value="" selected disabled>Select a question</option>
+                                <option value="Insert some emojis">Insert some emojis</option>
+                                <option value="A secret answer">A secret answer</option>
+                                <option value="Favourite book">Favourite book</option>
+                                <option value="Combination of characters">Combination of characters</option>
+                                <!-- Add more questions as needed -->
+                            </select>
+                        </div>
+                        <div class="form-group" id="security_answer_container" style="display: none;">
+                            <input type="text" class="form-control" id="security_answer1" name="security_answer1" placeholder="Answer" autocomplete="off" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <p class="small text-muted text-center">Already have an account? <a href="{{ url_for('login') }}" class="text-primary">Log in</a></p>
+                    </form>
+                    <!-- Separator Line -->
+                    <div class="separator-container">
+                        <hr class="separator">
+                        <span class="separator-text">or</span>
+                        <hr class="separator">
+                    </div>
+                    <!-- Add Google Login Button -->
+                    <div class="text-center">
+                        <a href="{{ url_for('google_login') }}" class="btn btn-outline-dark btn-block google-button" id="google-login-button">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png" alt="Google logo" class="google-logo"> Continue with Google
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var securityQuestion = document.getElementById('security_question1');
+        var answerContainer = document.getElementById('security_answer_container');
+        var securityQuestionLabel = document.getElementById('security_question_label');
+    
+        // Initially hide the answer container
+        answerContainer.style.display = 'none';
+    
+        // Toggle visibility when clicking the label
+        securityQuestionLabel.addEventListener('click', function() {
+            if (answerContainer.style.display === 'none') {
+                answerContainer.style.display = 'block';
+            } else {
+                answerContainer.style.display = 'none';
+            }
+        });
+    
+        // Show/hide based on the selected value of the dropdown
+        securityQuestion.addEventListener('change', function() {
+            if (securityQuestion.value !== "") {
+                answerContainer.style.display = 'block';
+            } else {
+                answerContainer.style.display = 'none';
+            }
+        });
+
+        // Initialize Tippy.js for the password field
+        var passwordField = document.getElementById('password');
+        var tooltipInstance = tippy(passwordField, {
+            content: `
+                <div style="text-align: justify;">
+                    <h4 style="color: #007bff;">Password Requirements</h4>
+                    <p>At least 8 characters long</p>
+                    <p>One uppercase letter</p>
+                    <p>One lowercase letter</p>
+                    <p>One digit</p>
+                    <p>One special character (@, $, !, %, *, ?, &, #, 😊)</p>
+                </div>
+            `,
+            allowHTML: true,
+            trigger: 'click',
+            theme: 'light',
+            maxWidth: 500, // Adjust the maximum width as needed
+            interactive: true // Allow interaction within the tooltip (clicks won't close it)
+        });
+
+        // Close the tooltip when the user starts typing
+        passwordField.addEventListener('input', function() {
+            tooltipInstance.hide();
+        }, { once: true });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var answerInput = document.getElementById('security_answer1');
+        
+        // Initialize Tippy.js for the answer input field
+        var tooltipInstance = tippy(answerInput, {
+            content: `
+                <div style="text-align: justify;">
+                    <h4 style="color: #007bff;">Secret Answer</h4>
+                    <p>Write a complex answer using a combination of special characters, letters, and digits.</p>
+                    <p>This <span style="color: #007bff;">answer</span> and your <span style="color: #007bff;">username</span> will be used to change your password.</p>
+                    <p>Remember them and keep them secret!</p>
+                </div>
+            `,
+            allowHTML: true,
+            trigger: 'click',
+            theme: 'light',
+            placement: 'bottom',
+            arrow: true
+        });
+
+        // Close the tooltip when the user starts typing
+        answerInput.addEventListener('input', function() {
+            tooltipInstance.hide();
+        }, { once: true });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var googleLoginButton = document.getElementById('google-login-button');
+
+        // Initialize Tippy.js for the Google login button
+        var tooltipInstance = tippy(googleLoginButton, {
+            content: 'Boost your security by registering with Google and activating two-factor authentication.',
+            allowHTML: true,
+            placement: 'top',
+            arrow: true
+        });
+    });
+
+    // Verify if the username is already taken or available.
+    document.getElementById('username').addEventListener('input', function() {
+        var username = this.value;
+        var availabilitySpan = document.getElementById('username-availability');
+        var usernameInput = this;
+        
+        availabilitySpan.textContent = 'Checking...';
+        availabilitySpan.className = 'username-checking';
+        usernameInput.classList.remove('input-error', 'input-valid');
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '{{ url_for("check_username") }}', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.available) {
+                    availabilitySpan.textContent = 'Username is available';
+                    availabilitySpan.className = 'username-available';
+                    usernameInput.classList.add('input-valid');
+                } else {
+                    availabilitySpan.textContent = 'Username is taken';
+                    availabilitySpan.className = 'username-taken';
+                    usernameInput.classList.add('input-error');
+                }
+            }
+        };
+        xhr.send('username=' + encodeURIComponent(username));
+    });
+</script>    
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="banner" style="background-image: url('{{ company_banner.get(account.name.lower(), default_banner_url) }}');"></div>
+    <div class="view-account-content">
+        <a href="#" class="key-button" onclick="toggleRectangles()" id="step2"><i class="fas fa-key"></i></a>
+        <div class="title-and-url">
+            {% if account.name.lower() in circular_logos %}
+            <div id="step3">
+                <img id="company-logo" src="{{ circular_logos[account.name.lower()] }}" alt="Logo" class="circular-logo" loading="lazy" data-company-name="{{ account.name }}">
+            </div>
+                {% endif %}
+            <div class="title-url-wrapper">
+                <h1 class="mb-1 title-with-border" style="font-family: 'Arial Black', Gadget, sans-serif;">
+                    {{ account.name.title()|capitalize_full }}
+                </h1>
+                {% if account.name.lower() in company_link %}
+                    <div class="company-url">
+                        <i class="fas fa-globe"></i>
+                        <a href="{{ company_link[account.name.lower()] }}" target="_blank">
+                            {{ account.name.lower().replace(' ', '') }}.com
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div id="step1"></div>
+        <div class="account-details" id="step4">
+            <p class="detail-item"><i class="fas fa-user"></i> <strong>User:</strong> <span class="lighter-font copy-text" style="cursor: pointer; word-break: break-word; white-space: normal;">{{ account.username|capitalize }}</span></p>
+            <p class="detail-item"><i class="fas fa-envelope"></i> <strong>Email:</strong> 
+                <span class="lighter-font copy-text email-field" style="cursor: pointer; position: relative; word-break: break-word; white-space: normal;">
+                    <span class="cover-rectangle"></span>
+                    {{ account.email }}
+                </span>
+            </p>
+            <p class="detail-item"><i class="fas fa-key"></i> <strong>Password:</strong> 
+                <span class="lighter-font copy-text password-field" style="cursor: pointer; position: relative; word-break: break-word; white-space: normal;">
+                    <span class="cover-rectangle"></span>
+                    {{ account.password }}
+                </span>
+            </p>            
+            <p class="detail-item"><i class="fas fa-calendar"></i> <strong>Year of Creation:</strong> <span class="lighter-font copy-text" style="cursor: pointer; word-break: break-word; white-space: normal;">{{ account.year_of_creation }}</span></p>
+            <p class="detail-item"><i class="fas fa-info-circle"></i> <strong>Description:</strong> <span id="description-link" onclick="toggleDescription()" style="cursor: pointer;">Click here</span></p>
+            <div id="description" class="update-account-container">
+                <p class="lighter-font">{{ account.description }}</p>
+            </div>
+        </div>
+        <a href="{{ url_for('update_account', account_index=account_index) }}" class="btn btn-custom-update btn-update">Update</a>
+        <button type="button" class="btn btn-danger btn-delete" data-toggle="modal" data-target="#deleteModal">Delete</button>
+    </div>
+</div>
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content confirm-delete-modal-content">
+      <div class="modal-header confirm-delete-modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+            &times;
+        </button>
+      </div>
+      <div class="modal-body" style="font-size: large;">
+        Are you sure you want to delete this account? This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="{{ url_for('delete_account', account_index=account_index) }}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Custom Alert Banner -->
+<div id="custom-alert" class="custom-alert">
+    <span id="custom-alert-message"></span>
+</div>
+<!-- Linking the JavaScript file for the Background Change -->
+<script src="{{ url_for('serve_scripts', filename='background.js') }}"></script>
+<script src="{{ url_for('serve_scripts', filename='company-config.js') }}"></script>
+
+<!-- Tour Guide Page -->
+<script src="{{ url_for('serve_scripts', filename='view.js') }}"></script>
+{% endblock %}

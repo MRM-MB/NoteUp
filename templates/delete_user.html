@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Red Background -->
+<style>
+    body {
+        background-image: url('../static/images/Bg_Colors/Desktop/Light-Mode/Red/bg-red.svg') !important;
+    }
+
+    @media (max-width: 768px) {
+    body {
+        background-image: url('../static/images/Bg_Colors/Phone/Light-Mode/Red/bg-red.svg') !important;
+    }
+}
+</style>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card delete-card">
+                <div class="card-body">
+                    <div class="delete-title-container">
+                        <h1 class="card-title mb-4">Delete Account</h1>
+                    </div>
+                    <p>Please type "<span style="color: #dc3545;">Delete my account</span>" to confirm deletion of your NoteUp account.</p>
+                    <form method="post" id="delete-form">
+                        <div class="form-group">
+                            <label for="confirmation_text">Confirmation Text:</label>
+                            <input type="text" class="form-control" id="confirmation_text" name="confirmation_text" autocomplete="off" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-block">Delete Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
