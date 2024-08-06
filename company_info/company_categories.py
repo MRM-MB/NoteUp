@@ -182,6 +182,7 @@ company_categories = {
     "ultimaker cura": "Technology",
     "unreal engine": "Technology",
     "ups": "Travel & Transport",
+    "uptimerobot":"Technology",
     "vanguard": "Finance",
     "venmo": "Finance",
     "verizon": "Technology",
