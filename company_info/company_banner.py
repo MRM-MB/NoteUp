@@ -138,7 +138,7 @@ company_banner = {
     "rolex": "https://cdn.wallpapersafari.com/3/61/MP15No.jpg",
     "safeway": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/52b1b827162895.56360a7162558.jpg",
     "samsung": "https://asset.brandfetch.io/iduaw_nOnR/idrF_fPpjL.jpeg",
-    "sdu": "https://www.sdu.dk/-/media/images/service/vejviser/vejviser_sonderborg.jpg?h=375&iar=0&w=870&hash=62FAAC50C0C3A93153F05CE33718E6D0",
+    "sdu": "https://storage.pubble.nl/6b4f4306/content/2022/7/699623c6-746a-48fe-b85d-b4427895794f_thumb1920.jpg",
     "santander": "https://bordalo.observador.pt/v2/q:84/rs:fill:4096:2303/c:4096:2303:nowe:0:214/plain/https://s3.observador.pt/wp-content/uploads/2021/09/01190139/GettyImages-1309530160-scaled.jpg",
     "shell": "https://asset.brandfetch.io/idBvD8kBit/id9XhEX_mh.jpeg",
     "shopify": "https://wallpapercave.com/wp/wp10267517.jpg",
