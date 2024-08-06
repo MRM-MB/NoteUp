@@ -182,6 +182,7 @@ company_link = {
     "ultimaker cura": "https://ultimaker.com/",
     "unreal engine": "https://unrealengine.com/",
     "ups": "https://ups.com/",
+    "uptimerobot": "https://uptimerobot.com/",
     "vanguard": "https://vanguard.com/",
     "venmo": "https://venmo.com/",
     "verizon": "https://verizon.com/",
