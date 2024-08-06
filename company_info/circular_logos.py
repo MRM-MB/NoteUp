@@ -182,6 +182,7 @@ circular_logos = {
     "ultimaker cura": "https://asset.brandfetch.io/idDw8sEzUK/idFw3SKIVj.png?updated=1714997166486",
     "unreal engine": "https://www.svgrepo.com/show/394536/unreal-engine.svg",
     "ups": "https://asset.brandfetch.io/id5aN1Q7um/ide1_5PFHC.jpeg?updated=1681475493714",
+    "uptimerobot":"https://asset.brandfetch.io/id9LgS6jeo/id4v_R03Yv.jpeg?updated=1717551877532",
     "vanguard": "https://asset.brandfetch.io/idf3bcOruF/idez9tvu_u.png?updated=1667574724705",
     "venmo": "https://asset.brandfetch.io/idzxDKVd5k/idioT3gP6F.png?updated=1667571111606",
     "verizon": "https://asset.brandfetch.io/idXhrQrb5t/idzZh99Iuz.jpeg?updated=1719811249191",
