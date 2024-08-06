@@ -182,6 +182,7 @@ company_banner = {
     "ultimaker cura": "https://asset.brandfetch.io/idDw8sEzUK/idbQvj6Jxg.jpeg",
     "unreal engine": "https://asset.brandfetch.io/idKDDYCJGJ/idHjI6WKr4.jpeg",
     "ups": "https://asset.brandfetch.io/id5aN1Q7um/idomiSLdSe.jpeg",
+    "uptimerobot":"https://asset.brandfetch.io/id9LgS6jeo/idQNtXqNuY.jpeg",
     "vanguard": "https://asset.brandfetch.io/idf3bcOruF/idKzPEtXnR.png",
     "venmo": "https://cdn.wallpapersafari.com/88/66/DZtlHS.jpeg",
     "verizon": "https://asset.brandfetch.io/idXhrQrb5t/idynpJcJ1v.jpeg",
