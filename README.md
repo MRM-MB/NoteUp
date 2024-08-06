@@ -36,7 +36,7 @@ To use the app, follow these steps:
 5. **Access the app**: Open your browser and navigate to `http://127.0.0.1:5000`
 
 ## Demo and Secure Deployment 🌐
-You can try a demo of NoteUp by visiting [this link](https://noteup-qej0.onrender.com).
+You can try a demo of NoteUp by visiting [this link](https://noteup-qej0.onrender.com){:target="_blank"}.
 
 For enhanced security, especially if you plan to enter important information, it is highly recommended to download the files and deploy the app locally or using a secure Flask deployment service such as Render.com or Heroku. This approach allows you to host a private version of your app, avoiding the need to share it with others. Note that this app is a concept and should not be deployed for general use, as important information may be at risk of exposure despite the security measures implemented, such as password and data encryption. Hosting the app locally or on your own server without sharing it is the best way to ensure your data remains secure.
 
