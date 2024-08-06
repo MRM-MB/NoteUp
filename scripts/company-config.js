@@ -259,6 +259,7 @@
         "ultimaker cura": backgroundCombinations.Blue,
         "unreal engine": backgroundCombinations.Black,
         ups: backgroundCombinations.Gold,
+        uptimerobot: backgroundCombinations.Green,
         vanguard: backgroundCombinations.DarkRed,
         venmo: backgroundCombinations.Blue,
         verizon: backgroundCombinations.Red,
