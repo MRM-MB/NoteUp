@@ -184,6 +184,7 @@ company_logos = {
     "ultimaker cura": "https://asset.brandfetch.io/idDw8sEzUK/idiAjAnRRs.png",
     "unreal engine": "https://asset.brandfetch.io/idKDDYCJGJ/id1YKtnqr4.svg",
     "ups": "https://asset.brandfetch.io/id5aN1Q7um/idWpm1ptPl.svg",
+    "uptimerobot": "https://www.pagerduty.com/wp-content/uploads/2021/03/uptimerobot-logo-09.png",
     "vanguard": "https://asset.brandfetch.io/idf3bcOruF/id1X7dmg91.svg",
     "venmo": "https://asset.brandfetch.io/idzxDKVd5k/id6Bp5prj6.svg",
     "verizon": "https://asset.brandfetch.io/idXhrQrb5t/idBGE2Ipx8.svg",
