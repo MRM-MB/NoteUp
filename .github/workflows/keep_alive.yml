@@ -13,4 +13,4 @@ jobs:
     steps:
       # Step 1: Send a curl request to your app's URL
       - name: Ping Flask App
-        run: curl -I https://noteup-qej0.onrender.com/
+        run: curl -I https://noteup-qej0.onrender.com
