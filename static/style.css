@@ -971,7 +971,7 @@ p {
     background-color: #c82333;
 }
 
-/* Existing .banner styles */
+/* Base banner styles */
 .banner {
     position: absolute;
     top: 100px;
@@ -981,7 +981,7 @@ p {
     background-size: cover;
     background-position: center;
     z-index: 0;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Keeps it centered horizontally */
     border-radius: 0.5rem;
 }
 
@@ -995,12 +995,25 @@ p {
     }
 }
 
-/* New media query for tablets (min-width: 768px and max-width: 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* Adjustments for tablets (768px to 1024px, including Surface Pro) */
+@media (min-width: 768px) and (max-width: 1280px) {
     .banner {
-        width: 90%;   /* Adjust width for tablet */
-        height: 250px; /* Adjust height */
-        top: 120px;    /* Adjust position */
+        width: 80%;   /* Adjust the width for more responsiveness */
+        height: 250px; /* Adjust the height */
+        top: 120px;    /* Adjust the vertical position */
+        left: 50%;     /* Keep the banner centered */
+        transform: translateX(-50%); /* Ensures centering */
+    }
+}
+
+/* Surface Pro specific resolution tweak */
+@media (min-width: 1281px) and (max-width: 1920px) {
+    .banner {
+        width: 75%;   /* Adjust width to fit larger tablet displays */
+        height: 280px; /* Slightly larger height */
+        top: 110px;    /* Adjust top position */
+        left: 50%;     /* Keep it centered horizontally */
+        transform: translateX(-50%); /* Correct horizontal centering */
     }
 }
 
