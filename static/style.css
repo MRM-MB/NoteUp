@@ -971,6 +971,7 @@ p {
     background-color: #c82333;
 }
 
+/* Existing .banner styles */
 .banner {
     position: absolute;
     top: 100px;
@@ -982,6 +983,25 @@ p {
     z-index: 0;
     transform: translateX(-50%);
     border-radius: 0.5rem;
+}
+
+/* Media query for mobile devices (max-width: 767.98px) */
+@media (max-width: 767.98px) {
+    .banner {
+        height: 150px;
+        top: 90px;
+        margin-top: 60px;
+        width: 380px;
+    }
+}
+
+/* New media query for tablets (min-width: 768px and max-width: 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .banner {
+        width: 90%;   /* Adjust width for tablet */
+        height: 250px; /* Adjust height */
+        top: 120px;    /* Adjust position */
+    }
 }
 
 @media (max-width: 767.98px) {
