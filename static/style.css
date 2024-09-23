@@ -1012,7 +1012,7 @@ p {
         width: 75%;   /* Adjust width to fit larger tablet displays */
         height: 280px; /* Slightly larger height */
         top: 110px;    /* Adjust top position */
-        left: 50%;     /* Keep it centered horizontally */
+        left: 80%;     /* Keep it centered horizontally */
         transform: translateX(-50%); /* Correct horizontal centering */
     }
 }
