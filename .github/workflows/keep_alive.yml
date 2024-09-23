@@ -1,0 +1,16 @@
+name: Keep Flask App Alive
+
+# Trigger the action on a schedule using cron
+on:
+  schedule:
+    # Runs every 5 minutes
+    - cron: '*/5 * * * *'
+
+jobs:
+  keep_alive:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    
+    steps:
+      # Step 1: Send a curl request to your app's URL
+      - name: Ping Flask App
+        run: curl -I https://noteup-qej0.onrender.com/
