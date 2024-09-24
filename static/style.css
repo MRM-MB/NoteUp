@@ -1001,7 +1001,7 @@ p {
         width: 80%;   /* Adjust the width for more responsiveness */
         height: 250px; /* Adjust the height */
         top: 120px;    /* Adjust the vertical position */
-        left: 50%;     /* Keep the banner centered */
+        left: 45%;     /* Keep the banner centered */
         transform: translateX(-50%); /* Ensures centering */
     }
 }
