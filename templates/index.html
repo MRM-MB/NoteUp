@@ -96,6 +96,22 @@
         transform-origin: bottom right; /* Optional: Adjust origin if needed */
     }
 
+    /* Media query for Microsoft Surface Pro 9 in landscape mode */
+    @media only screen 
+      and (min-device-width: 1368px) 
+      and (max-device-width: 2880px) 
+      and (orientation: landscape) 
+      and (-webkit-min-device-pixel-ratio: 1.25) {
+          
+        .bottom-left-image {
+            bottom: 100px;
+            right: 50px; /* Move the image further to the right */
+            width: 250px; /* Smaller width */
+            height: 300px; /* Smaller height */
+            transform: rotate(-20deg); /* Slightly less rotation */
+        }
+    }
+
     /* Adjust for tablets */
     @media (max-width: 1024px) {
         .bottom-right-image {
@@ -106,14 +122,6 @@
         }
     }
 
-    @media (min-width: 1281px) and (max-width: 1920px) {
-        .bottom-left-image {
-            width: 500px;
-            height: 500px;
-            bottom: -50px;
-            right: 10px;
-        }
-    }
     /* Adjust for mobile devices */
     @media (max-width: 768px) {
         .bottom-right-image {
