@@ -1,4 +1,4 @@
-# NoteUp 📒
+# NoteUp: Keep Accounts in One Place 📒
 **NoteUp** is a Flask-based account manager with registration, login, account storage, Google OAuth (optional), and inactivity logout.
 
 ![NoteUp Logo](README_assets/noteup.png)
